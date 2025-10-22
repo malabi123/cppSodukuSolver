@@ -33,7 +33,7 @@ void Table::PrintTable()
         if (i % m_SizeManager->GetGroupH() == 0 && i != 0)
             for (int j = 0; j < m_SizeManager->ColSize(); j++)
             {
-                std::cout << "--";
+                std::cout << "---";
                 if (j % m_SizeManager->GetGroupW()==0 && j != 0)
                     std::cout << "---";
             }
@@ -41,7 +41,9 @@ void Table::PrintTable()
         for (int j = 0; j < m_SizeManager->ColSize(); j++) {
             if (j % m_SizeManager->GetGroupW() == 0 && j != 0)
                 std::cout << " | ";
-            std::cout<<m_Board[i][j].GetValue()+1 << " ";
+            std::cout << m_Board[i][j].GetValue() + 1<<" ";
+            if (m_Board[i][j].GetValue() < 9 )
+                std::cout << " ";
         }
         std::cout << std::endl;
     }
@@ -54,16 +56,29 @@ void Table::SetValueInSquare(int row, int col, int value)
     
 }
 
-void Table::SetValueInSquare(int value)
+void Table::SetValueInSquareOneDigitSize(int value)
 {
     SetValueInSquare(value / 100, (value % 100) / 10, value % 10);
+}
 
+void Table::SetValueInSquareTwoDigitSize(int value)
+{
+    SetValueInSquare(value / 10000, (value % 10000) / 100, value % 100);
 }
 
 void Table::SetValuesInSquares(int arr[], int size)
 {
-    for (int i = 0; i < size; i++) {
-        SetValueInSquare(arr[i]);
+    if (m_SizeManager->ColSize() < 10) {
+
+        for (int i = 0; i < size; i++) {
+            SetValueInSquareOneDigitSize(arr[i]);
+        }
+    }
+    else
+    {
+        for (int i = 0; i < size; i++) {
+            SetValueInSquareTwoDigitSize(arr[i]);
+        }
     }
 }
 

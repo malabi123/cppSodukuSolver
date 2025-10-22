@@ -28,7 +28,8 @@ public:
 	~Table();
 	void PrintTable();
 	void SetValueInSquare(int row, int col, int value);
-	void SetValueInSquare(int value);
+	void SetValueInSquareOneDigitSize(int value);
+	void SetValueInSquareTwoDigitSize(int value);
 	void SetValuesInSquares(int* arr, int size);
 	void SquareUpdateParentItFilled(int row, int col, int num);
 	void solve();

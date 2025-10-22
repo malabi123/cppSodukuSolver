@@ -4,6 +4,7 @@ enum eSize {
 	SizeFour,
 	SizeSix,
 	SizeNine,
+	SizeSixteen
 };
 
 static class TableBuilder

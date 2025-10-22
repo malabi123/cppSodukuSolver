@@ -13,6 +13,6 @@ public:
 	int GetGroupH();
 	int GetGroupW();
 	void GroupPosByPos(int row, int col, int* rowS, int* rowE, int* colS, int* colE);
-	virtual void GroupPosByGroup(int group, int* rowS, int* rowE, int* colS, int* colE) = 0;
+	void GroupPosByGroup(int group, int* rowS, int* rowE, int* colS, int* colE);
 };
 
