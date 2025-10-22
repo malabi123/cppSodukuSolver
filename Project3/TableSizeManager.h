@@ -5,9 +5,11 @@ private:
 	int m_Size;
 	int m_GroupH;
 	int m_GroupW;;
-		
+
+protected:
+	TableSizeManager(int s, int h, int w);
+
 public:
-	TableSizeManager(int s, int h ,int w);
 	int RowSize();
 	int ColSize();
 	int GetGroupH();

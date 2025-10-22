@@ -265,8 +265,6 @@ void Table::resetTemp()
 void Table::solve() {
     for (int i = 0; i < m_SizeManager->RowSize(); i++) {
         if (m_toFill == 0) {
-
-            PrintTable();
             break;
         }
         checkRow(i);
